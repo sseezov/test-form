@@ -10,7 +10,14 @@ type Inputs = {
 export default function Form() {
     let [sign, setSign] = useState('none');
     let [name, setName] = useState('none')
+    let [button, setButton]=useState(true);
 
+
+  
+  const disButton = ()=>{setTimeout(()=>setButton(false),0);
+    setTimeout(()=>{setButton(true)
+    }, 1000)
+};
   const logName = (x:string)=>setName(x)
   const trueSign = ()=> setSign('true');
   const falseSign = ()=> setSign('false')
@@ -33,7 +40,7 @@ export default function Form() {
         
               
     <form onSubmit={handleSubmit(onSubmit)}>
-         {sign==='false'? <div className="error">{`no such user as ${name}`}</div> : console.log(true)}
+         {sign==='false'? <div className="error">{`no such user as ${name}`}</div> : null}
       
       <label>Login <input {...register("login", { required: true })} /></label>
       {errors.login && <span>Обязательное поле</span>}
@@ -50,8 +57,10 @@ export default function Form() {
         />Запомнить меня
       </label></span>
       
-      <input type="submit"/>
+      <input type="submit" id="submit" disabled={!button?true:false} onClick={disButton} />
     </form>
     </div>
   );
 }
+
+// 
