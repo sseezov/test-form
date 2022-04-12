@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import "./App.css";
 
-import { Navigate, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import { UserContext } from "./UserContext";
 
 type Inputs = {
@@ -13,10 +13,7 @@ type formProps = {};
 
 const Form = (props: formProps) => {
   let [sign, setSign] = useState("none");
-
   let [button, setButton] = useState(true);
-  // let [userLog, setUserLog] = useState(false);
-
   let { name, setName, userLog, setUserLog } = useContext(UserContext);
 
   const logger = () => {
@@ -26,6 +23,7 @@ const Form = (props: formProps) => {
     if (userLog) {
       navigate("/profile");
     }
+
     setTimeout(() => setButton(false), 0);
     setTimeout(() => {
       setButton(true);
