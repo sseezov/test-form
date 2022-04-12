@@ -48,12 +48,26 @@ input, .error {
 }
 
 .error{
-  background-color: green;
+  background-color: rgb(242, 122, 113);
   font-size: 500;
   max-width: 500px;
   text-align: center;
   margin: 0 auto;
 
+}
+
+.remember{
+    font-size: 20px;
+    justify-content: top;
+    align-self: left;
+}
+
+.logged{
+    background-color: rgb(113, 242, 141);
+    font-size: 500;
+    max-width: 500px;
+    text-align: center;
+    margin: 0 auto;
 }
 
 label {
@@ -78,6 +92,10 @@ input[type="submit"] {
   font-size: 16px;
   font-weight: 100;
   letter-spacing: 10px;
+font-size: 500;
+width: 400px;
+text-align: center;
+margin: 0 auto;
 }
 
 button[type="submit"]:hover,

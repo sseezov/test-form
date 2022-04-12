@@ -11,7 +11,7 @@ const Profile = () => {
   };
   return (
     <>
-      <div className="error">{name}</div>
+      <div className="logged">{name}</div>
       <button onClick={unlogger}>Logout</button>
     </>
   );
