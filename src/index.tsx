@@ -1,17 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { useState, createContext, useContext } from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Form from "./form";
+import Profile from "./profile";
+import { UserContext } from "./UserContext";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+function Main() {
+  const [name, setName] = useState();
+  let [userLog, setUserLog] = useState(false);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  return (
+    <UserContext.Provider value={{ name, setName, userLog, setUserLog }}>
+      <BrowserRouter>
+        <h1>ONLY.</h1>
+        <Routes>
+          <Route path="/" element={<Form />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+      </BrowserRouter>
+    </UserContext.Provider>
+  );
+}
+
+ReactDOM.render(<Main />, document.getElementById("root"));
